@@ -1,0 +1,4 @@
+flask>=3.0
+numpy>=1.26
+torch>=2.2
+# optionnel : pip install music21   (pour python collect_data.py --bach)

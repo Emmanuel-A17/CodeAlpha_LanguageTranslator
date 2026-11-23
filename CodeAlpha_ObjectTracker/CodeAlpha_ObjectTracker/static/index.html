@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tracker — Détection et suivi d'objets</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"><span></span><span></span><span></span></div>
+  <main class="shell">
+    <header class="hero">
+      <div class="logo" aria-hidden="true">◎</div>
+      <h1>Tracker</h1>
+      <p>Détection d'objets (YOLOv4-tiny) et suivi avec identifiants (SORT), en temps réel.</p>
+    </header>
+
+    <section class="card controls">
+      <div class="tabs" role="tablist">
+        <button class="tab active" id="tabCam" role="tab">📷 Webcam</button>
+        <button class="tab" id="tabFile" role="tab">🎞 Fichier vidéo</button>
+      </div>
+      <div class="file" id="fileBox" hidden>
+        <input id="video" type="file" accept="video/*" aria-label="Fichier vidéo">
+      </div>
+      <div class="field" id="camBox">
+        <label for="camera">Numéro de caméra</label>
+        <input id="camera" type="number" min="0" value="0">
+      </div>
+      <div class="field">
+        <label for="conf">Confiance minimale <b id="confOut">0.40</b></label>
+        <input id="conf" type="range" min="0.2" max="0.8" step="0.05" value="0.4">
+        <small>Plus haut : moins de fausses détections, mais plus d'oublis</small>
+      </div>
+      <div class="field classes">
+        <label for="classes">Classes à suivre (vide = toutes)</label>
+        <input id="classes" list="classList" placeholder="ex. person, car, dog">
+        <datalist id="classList"></datalist>
+      </div>
+      <div class="row">
+        <button id="start" class="primary"><span class="label">Démarrer</span></button>
+        <button id="stop" class="secondary" disabled>Arrêter</button>
+      </div>
+      <p id="message" class="message" role="status"></p>
+    </section>
+
+    <section class="card player">
+      <div class="screen">
+        <img id="feed" alt="Flux vidéo annoté" hidden>
+        <div class="placeholder" id="placeholder">Le flux vidéo apparaîtra ici.</div>
+      </div>
+      <div class="stats" id="stats"></div>
+    </section>
+    <footer>CodeAlpha · Tâche 4 · Détection et suivi d'objets</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

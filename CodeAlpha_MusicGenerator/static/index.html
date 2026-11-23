@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Melodia — Composer de la musique avec l'IA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <main class="shell">
+    <header class="hero">
+      <div class="logo" aria-hidden="true">♪</div>
+      <h1>Melodia</h1>
+      <p>Un réseau de neurones LSTM qui a appris sur des fichiers MIDI et compose de nouvelles mélodies.</p>
+    </header>
+
+    <section class="card controls">
+      <div class="field">
+        <label for="model">Modèle</label>
+        <select id="model"></select>
+      </div>
+      <div class="field">
+        <label for="seconds">Durée <b id="secondsOut">20 s</b></label>
+        <input id="seconds" type="range" min="5" max="60" step="5" value="20">
+      </div>
+      <div class="field">
+        <label for="tempo">Tempo <b id="tempoOut">100 BPM</b></label>
+        <input id="tempo" type="range" min="60" max="160" step="5" value="100">
+      </div>
+      <div class="field">
+        <label for="temperature">Créativité <b id="temperatureOut">0.9</b></label>
+        <input id="temperature" type="range" min="0.4" max="1.4" step="0.05" value="0.9">
+        <small>Bas : prudent et répétitif · Haut : surprenant, parfois faux</small>
+      </div>
+      <div class="field">
+        <label for="seed">Graine (optionnelle)</label>
+        <input id="seed" type="number" placeholder="ex. 42">
+      </div>
+      <button id="generate" class="primary"><span class="spinner" hidden></span><span class="label">Composer</span></button>
+      <p id="message" class="message" role="status"></p>
+    </section>
+
+    <section class="card player" id="player" hidden>
+      <div class="roll-wrap">
+        <canvas id="roll" aria-label="Partition en rouleau de piano"></canvas>
+      </div>
+      <audio id="audio" controls preload="auto"></audio>
+      <div class="actions">
+        <a id="dlMidi" class="ghost" download>⬇ Télécharger le MIDI</a>
+        <a id="dlWav" class="ghost" download>⬇ Télécharger le WAV</a>
+      </div>
+      <p id="meta" class="meta"></p>
+    </section>
+
+    <footer>CodeAlpha · Tâche 3 · Génération de musique avec l'IA</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

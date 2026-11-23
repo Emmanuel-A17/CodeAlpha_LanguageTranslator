@@ -1,0 +1,26 @@
+# Environnement virtuel Python
+.venv/
+venv/
+env/
+*.pyc
+__pycache__/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Logs
+*.log
+
+# Installateurs
+INSTALL_OPENCV4.py
+INSTALL_TORCH.bat
+INSTALL_TORCH.py
+
+# Dépôt Git imbriqué (à gérer séparément si nécessaire)
+CodeAlpha_LanguageTranslator/.git
